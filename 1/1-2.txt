@@ -1,0 +1,1 @@
+while true; do cat data.txt; done |tr -d '+'|gawk 'BEGIN{sum=0}{sum = sum + $0; if (sum in a) print sum; a[sum]=1}' | head

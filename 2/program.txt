@@ -1,0 +1,1 @@
+rm tmp_*; ((cat data.txt |while read x; do echo $x | grep -o . | sort | tr -d '\n'; echo; done) | perl -pe 's/(\w)\1{3,}//g' | tee tmp_no4s.txt | egrep '(\w)\1\1' | wc -l; perl -pe 's/(\w)\1{2,}//g' < tmp_no4s.txt | egrep '(\w)\1' | wc -l ) | gawk 'BEGIN {chk=1}{chk = chk * $0}END{printf chk}'

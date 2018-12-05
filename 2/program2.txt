@@ -1,0 +1,1 @@
+for i in $(seq 2 27); do let frontstop=i-1; let endstart=i+1; sed 's/.*/ &/' < data.txt | cut -c "-$frontstop,$endstart-" | sort | uniq -d; done
